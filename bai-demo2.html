@@ -1,39 +1,28 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Bài viết demo</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/blog.css">
+  <meta charset="utf-8" />
+  <title>Bài 1</title>
 </head>
 <body>
+  <script>
+    var ua = navigator.userAgent || "";
 
-<header class="header">
-  <div class="container">
-    <a href="../index.html" class="back">← Trang chủ</a>
-  </div>
-</header>
+    // Link Shopee cho bài 1
+    var shopeeLink = "https://s.shopee.vn/qd5m5WUhE";
 
-<main class="container post">
-  <!-- ===== DÁN HTML BLOGSPOT TỪ ĐÂY ===== -->
-
-  <h1>Tiêu đề bài viết</h1>
-
-  <p>Nội dung copy từ Blogspot.</p>
-
-  <!-- Link Shopee bạn tự chèn -->
-  <!--
-  <a href="https://shopee.vn/product/xxx">
-    <img src="../img/banner.jpg">
-  </a>
-  -->
-
-  <!-- ===== DÁN HTML BLOGSPOT ĐẾN ĐÂY ===== -->
-</main>
-
-<footer class="footer">
-  © 2026 My Blog
-</footer>
-
+    if (/android/i.test(ua)) {
+      // Android: mở Chrome ngoài + redirect
+      window.location.href =
+        "intent://" + shopeeLink.replace("https://", "") +
+        "#Intent;scheme=https;package=com.android.chrome;end;";
+    } else {
+      // iOS hoặc khác
+      window.location.href = shopeeLink;
+    }
+  </script>
+  <noscript>
+    <p>Nếu không tự chuyển hướng, bấm <a href="https://s.shopee.vn/qd5m5WUhE">vào đây</a>.</p>
+  </noscript>
 </body>
 </html>
