@@ -2,14 +2,23 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0; url=https://s.shopee.vn/qd5m5WUhE" />
-  <script>
-    // Dùng fallback JS để redirect nếu meta refresh không hoạt động
-    window.location.href = "https://s.shopee.vn/qd5m5WUhE";
-  </script>
+  <title>Redirect to Shopee</title>
 </head>
 <body>
-  <p>Nếu bạn không được chuyển hướng tự động, vui lòng <a href="https://s.shopee.vn/qd5m5WUhE">bấm vào đây</a>.</p>
+  <script>
+    var ua = navigator.userAgent || "";
+
+    if (/android/i.test(ua)) {
+      // Android: dùng intent để mở Chrome ngoài và Shopee
+      window.location.href = 
+        "intent://s.shopee.vn/qd5m5WUhE#Intent;scheme=https;package=com.android.chrome;end;";
+    } else {
+      // iOS hoặc khác: mở link Shopee bình thường (trong trình duyệt hoặc app)
+      window.location.href = "https://s.shopee.vn/qd5m5WUhE";
+    }
+  </script>
+  <noscript>
+    <p>Nếu bạn không được chuyển hướng, vui lòng <a href="https://s.shopee.vn/qd5m5WUhE">bấm vào đây</a>.</p>
+  </noscript>
 </body>
 </html>
