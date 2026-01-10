@@ -2,23 +2,14 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Redirect to Shopee</title>
+  <title>Danh sách bài viết</title>
 </head>
 <body>
-  <script>
-    var ua = navigator.userAgent || "";
-
-    if (/android/i.test(ua)) {
-      // Android: dùng intent để mở Chrome ngoài và Shopee
-      window.location.href = 
-        "intent://s.shopee.vn/qd5m5WUhE#Intent;scheme=https;package=com.android.chrome;end;";
-    } else {
-      // iOS hoặc khác: mở link Shopee bình thường (trong trình duyệt hoặc app)
-      window.location.href = "https://s.shopee.vn/qd5m5WUhE";
-    }
-  </script>
-  <noscript>
-    <p>Nếu bạn không được chuyển hướng, vui lòng <a href="https://s.shopee.vn/qd5m5WUhE">bấm vào đây</a>.</p>
-  </noscript>
+  <h2>Danh sách bài</h2>
+  <ul>
+    <li><a href="bai1.html">Bài 1</a></li>
+    <li><a href="bai2.html">Bài 2</a></li>
+    <li><a href="bai3.html">Bài 3</a></li>
+  </ul>
 </body>
 </html>
