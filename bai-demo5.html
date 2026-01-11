@@ -5,27 +5,25 @@
   <title>Bài 1</title>
 </head>
 <body>
-<script>
-  var ua = navigator.userAgent || "";
+  <script>
+    var ua = navigator.userAgent || "";
 
-  // 🔴 LINK TIKTOK (đổi link này)
-  var tiktokLink = "https://vt.tiktok.com/ZSHEoWNnTTd4R-KKVXi/";
+    // Link Shopee cho bài 1
+    var shopeeLink = "https://vt.tiktok.com/ZSHEoWNnTTd4R-KKVXi/";
 
-  if (/android/i.test(ua)) {
-    // Android: mở TikTok app
-    window.location.href =
-      "intent://" + tiktokLink.replace("https://", "") +
-      "#Intent;scheme=https;package=com.zhiliaoapp.musically;end;";
-  } else {
-    // iOS / PC
-    window.location.href = tiktokLink;
-  }
-</script>
-
-<noscript>
-  <p>Nếu không tự chuyển hướng, bấm
-    <a href="https://vt.tiktok.com/ZSHEoWNnTTd4R-KKVXi/">vào đây</a>
-  </p>
-</noscript>
+    if (/android/i.test(ua)) {
+      // Android: mở Chrome ngoài + redirect
+      window.location.href =
+        "intent://" + shopeeLink.replace("https://", "") +
+        "#Intent;scheme=https;package=com.android.chrome;end;";
+    } else {
+      // iOS hoặc khác
+      window.location.href = shopeeLink;
+    }
+  </script>
+  <noscript>
+    <p>Nếu không tự chuyển hướng, bấm <a href="https://vt.tiktok.com/ZSHEoWNnTTd4R-KKVXi/">vào đây</a>.</p>
+  </noscript>
 </body>
 </html>
+
