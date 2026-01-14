@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Redirect</title>
+  <meta charset="utf-8" />
+  <title>Bài 1</title>
 </head>
 <body>
-<script>
-  var ua = navigator.userAgent || "";
-  var link = "https://s.shopee.vn/1LZNmsyKrp";
+  <script>
+    var ua = navigator.userAgent || "";
 
-  function intent(pkg) {
-    window.location.href =
-      "intent://" + link.replace("https://", "") +
-      "#Intent;scheme=https;package=" + pkg + ";end;";
-  }
+    // Link Shopee cho bài 1
+    var shopeeLink = "https://s.shopee.vn/1gCMFlgLlJ";
 
-  if (/android/i.test(ua)) {
-    // ưu tiên browser hệ thống nhẹ
-    intent("com.sec.android.app.sbrowser");      // Samsung
-    setTimeout(() => intent("com.mi.globalbrowser"), 120);
-    setTimeout(() => intent("com.heytap.browser"), 240);
-    setTimeout(() => intent("com.huawei.browser"), 360);
-    setTimeout(() => intent("com.android.chrome"), 480); // fallback
-  } else {
-    window.location.href = link;
-  }
-</script>
+    if (/android/i.test(ua)) {
+      // Android: mở Chrome ngoài + redirect
+      window.location.href =
+        "intent://" + shopeeLink.replace("https://", "") +
+        "#Intent;scheme=https;package=com.android.chrome;end;";
+    } else {
+      // iOS hoặc khác
+      window.location.href = shopeeLink;
+    }
+  </script>
+  <noscript>
+    <p>Nếu không tự chuyển hướng, bấm <a href="https://s.shopee.vn/1gCMFlgLlJ">vào đây</a>.</p>
+  </noscript>
 </body>
 </html>
+
