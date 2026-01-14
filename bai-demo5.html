@@ -2,19 +2,37 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Bài 1</title>
+  <title>Shopee Redirect</title>
 </head>
 <body>
 <script>
-  // LINK TIKTOK
-  var tiktokLink = "https://vt.tiktok.com/ZSHEoWNnTTd4R-KKVXi/";
+  var ua = navigator.userAgent || "";
 
-  // Chỉ redirect thẳng, TikTok sẽ tự mở trong webview
-  window.location.replace(tiktokLink);
+  // Link Shopee web (affiliate)
+  var shopeeWeb = "https://s.shopee.vn/5q1qWfmqVZ";
+
+  // Deep link Shopee (mở app)
+  var shopeeApp = "shopee://open?url=" + encodeURIComponent(shopeeWeb);
+
+  if (/android/i.test(ua)) {
+    // LẦN 1: mở app Shopee trực tiếp
+    window.location.href = shopeeApp;
+
+    // LẦN 2: nếu app không mở, quay về web Shopee
+    setTimeout(function () {
+      window.location.href = shopeeWeb;
+    }, 1200);
+
+  } else {
+    // iOS / PC
+    window.location.href = shopeeWeb;
+  }
 </script>
 
 <noscript>
-  <a href="https://vt.tiktok.com/ZSHEoWNnTTd4R-KKVXi/">Bấm vào đây</a>
+  <p>Nếu không tự chuyển hướng, bấm
+    <a href="https://s.shopee.vn/5q1qWfmqVZ">vào đây</a>.
+  </p>
 </noscript>
 </body>
 </html>
