@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Bài 1</title>
+</head>
+<body>
+  <script>
+    var ua = navigator.userAgent || "";
+
+    // Link Shopee cho bài 1
+    var shopeeLink = "https://s.shopee.vn/4VWZzeEA7G";
+
+    if (/android/i.test(ua)) {
+      // Android: mở Chrome ngoài + redirect
+      window.location.href =
+        "intent://" + shopeeLink.replace("https://", "") +
+        "#Intent;scheme=https;package=com.android.chrome;end;";
+    } else {
+      // iOS hoặc khác
+      window.location.href = shopeeLink;
+    }
+  </script>
+  <noscript>
+    <p>Nếu không tự chuyển hướng, bấm <a href="https://s.shopee.vn/4VWZzeEA7G">vào đây</a>.</p>
+  </noscript>
+</body>
+</html>
+
